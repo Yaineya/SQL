@@ -1,5 +1,7 @@
 -- последовательность команд
 
+-- PostgreSQL
+
 SELECT 'столбцы или * для выбора всех столбцов; обязательно'
 
 FROM 'таблица; обязательно'
@@ -13,9 +15,17 @@ HAVING 'условие/фильтрация на уровне сгруппиро
 ORDER BY 'столбец, по которому хотим отсортировать вывод; необязательно'
 
 create table book(
-    book_id int primary key auto_increment,
+    book_id serial primary key,
     title varchar(50),
     author varchar(30),
     price decimal(8, 2),
     amount int
 );
+
+insert into book (title, author, price, amount)
+values ('Мастер и Маргарита', 'Булгаков М.А.', 670.99,	3),
+	   ('Белая гвардия', 'Булгаков М.А.', 540.50, 5), 
+       ('Идиот', 'Достоевский Ф.М.', 460.00, 10),
+       ('Братья Карамазовы', 'Достоевский Ф.М.', 799.01, 2); 
+
+select * from book;

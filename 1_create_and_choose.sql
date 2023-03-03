@@ -34,3 +34,32 @@ from book;
 select title, amount, amount * 1.65 as pack
 from book;
 
+-- TASK 3
+-- В конце года цену всех книг на складе пересчитывают – снижают ее на 30%. 
+-- Написать SQL запрос, который из таблицы book выбирает названия, авторов, количества и вычисляет новые цены книг. 
+-- Столбец с новой ценой назвать new_price, цену округлить до 2-х знаков после запятой.
+
+select title, author, amount, round( price * 0.7 ,2) as new_price
+from book
+
+-- TASK 4
+-- Решили поднять цену книг Булгакова на 10%, а цену книг Есенина - на 5%. 
+-- Написать запрос, куда включить автора, название книги и новую цену, последний столбец назвать new_price. 
+-- Значение округлить до двух знаков после запятой.
+
+select author, title, 
+round( 
+    case 
+    	when author = 'Булгаков М.А.' then price * 1.1 
+     	when author = 'Есенин С.А.' then price * 1.05 
+     	else price
+     	end, 2)
+   as new_price
+from book
+
+-- TASK 5
+-- Вывести автора, название  и цены тех книг, количество которых меньше 10.
+
+select author, title, price from book
+where amount < 10
+

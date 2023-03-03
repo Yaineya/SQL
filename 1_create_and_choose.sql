@@ -98,3 +98,10 @@ select title, author
 from book
 where title like "%_% %_%" and author like '%С.%'
 group by title 
+
+-- TASK 9
+-- Придумайте запрос к нашей таблице book
+
+select * from book
+where title like '%ар%' and amount > 2
+order by price;

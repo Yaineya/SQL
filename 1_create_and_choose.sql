@@ -105,3 +105,5 @@ group by title
 select * from book
 where title like '%ар%' and amount > 2
 order by price;
+
+hi
